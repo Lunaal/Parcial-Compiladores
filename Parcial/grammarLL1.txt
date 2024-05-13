@@ -1,0 +1,58 @@
+FUNCION -> def identificador DECF Key_left EXP Key_right 
+FUNCION -> E 
+FUNCION -> V E' oper_dotc FUNCION 
+DECF -> left_p REC right_p 
+E -> TYPE Q oper_dotc 
+E -> BUCLE  
+E -> IF 
+E -> print left_p EXP1 EXP right_p oper_dotc 
+Q -> oper_equal V E' 
+Q -> '' 
+COM -> oper_com REC 
+COM -> '' 
+REC -> V COM 
+REC -> ''  
+A -> identificador  
+R -> oper_plus oper_plus 
+R -> oper_min oper_min 
+BUCLE ->  for left_p ID  C numeral oper_com ID C numeral oper_com ID R right_p Key_left EXP Key_right EXP 
+BUCLE -> while left_p ID C V right_p Key_left EXP Key_right EXP 
+BUCLE ->  '' 
+IF -> if left_p EXP1 right_p Key_left EXP Key_right ELSEIF 
+ELSEIF -> elif left_p EXP1 right_p Key_left EXP Key_right ELSE 
+ELSEIF -> ELSE 
+ELSE -> else Key_left EXP Key_right 
+ELSEIF -> '' 
+C -> doper_equal 
+C -> oper_equal 
+C -> oper_diferent 
+C -> oper_more 
+C -> oper_less 
+C -> oper_moreE 
+C -> oper_lessE 
+J -> V E' 
+E' ->  O V E' 
+E' -> DECF 
+E' -> '' 
+O -> oper_plus  
+O -> oper_min 
+O -> oper_mul 
+O -> oper_div  
+O -> oper_equal 
+O -> doper_equal 
+O -> reserved_and 
+O -> reserved_or 
+EXP -> ID E' oper_dotc E 
+EXP -> return left_p J right_p E' oper_dotc EXP 
+EXP -> E 
+EXP1 -> V E' 
+V -> numeral 
+V -> float 
+V -> literal 
+V -> Boolean 
+V -> ID 
+ID -> identificador 
+TYPE -> type_String identificador 
+TYPE -> type_int identificador 
+TYPE -> type_float identificador 
+TYPE -> type_bool identificador 
